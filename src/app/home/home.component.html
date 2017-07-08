@@ -1,0 +1,24 @@
+<div class="container" xmlns="">
+  <div class="search">
+    <md-input-container>
+      <input mdInput #query placeholder="Enter name of the manga" (keyup)="search(query.value)">
+    </md-input-container>
+  </div>
+
+  <md-card *ngFor="let result of searchResults | async">
+    <md-card-header>
+      <md-card-title>
+        {{ result.title }}
+      </md-card-title>
+      <md-card-subtitle>
+        {{ result.subtitle }}
+      </md-card-subtitle>
+    </md-card-header>
+    <img md-card-image [src]="result.thumbnail">
+    <md-card-content>
+      <p>
+        {{ result.description }}
+      </p>
+    </md-card-content>
+  </md-card>
+</div>
